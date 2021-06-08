@@ -55,20 +55,20 @@ export const Spacing: React.FC<BoxType> = (props) => {
 };
 
 type BoxType = {
-  grow?: number;
-  m?: number;
-  mh?: number;
-  mv?: number;
-  ml?: number;
-  mr?: number;
-  mt?: number;
-  mb?: number;
-  p?: number;
-  ph?: number;
-  pv?: number;
-  pl?: number;
-  pr?: number;
-  pt?: number;
-  pb?: number;
+  grow?: string | number;
+  m?: string | number;
+  mh?: string | number;
+  mv?: string | number;
+  ml?: string | number;
+  mr?: string | number;
+  mt?: string | number;
+  mb?: string | number;
+  p?: string | number;
+  ph?: string | number;
+  pv?: string | number;
+  pl?: string | number;
+  pr?: string | number;
+  pt?: string | number;
+  pb?: string | number;
   children?: JSX.Element | JSX.Element[] | string | any;
 };

@@ -1,6 +1,6 @@
 import React from 'react';
 import { TouchableOpacity } from 'react-native-gesture-handler';
-import { Box, Spacing, Border, Shadow } from '../components';
+import { Box, Border, Shadow } from '../components';
 
 const statusOpacity = {
   default: 1,
@@ -11,17 +11,16 @@ const statusOpacity = {
 export const Button: React.FC<ButtonType> = ({
   onPress,
   status = 'default',
-  size = 'l',
-  category = 'fill',
   width,
   color,
+  height,
   children,
 }) => {
   return (
     <Box
       opacity={statusOpacity[status]}
       width={width ? width : 'auto'}
-      height={size === 's' ? 42 : 48}
+      height={height}
       alignSelf={'flex-start'}
     >
       <TouchableOpacity
@@ -31,7 +30,6 @@ export const Button: React.FC<ButtonType> = ({
         <Border
           radius={4}
           color={color}
-          lineWidth={category === 'ghost' ? 1 : 0}
         >
           <Box
             color={color}
@@ -41,25 +39,23 @@ export const Button: React.FC<ButtonType> = ({
               color={'black'}
               radius={0}
               opacity={0.15}
-              h={category === 'fill' ? 4 : 0}
+              h={4}
               w={0}
             >
               <Box
                 width={'100%'}
-                height={size === 's' ? 38 : 44}
+                height={height}
                 color={color}
                 justifyContent={'center'}
                 alignItems={'center'}
               >
-                <Spacing ph={category === 'text' ? 0 : 4}>
-                  <Box
-                    justifyContent={'center'}
-                    alignItems={'center'}
-                    alignSelf={'stretch'}
-                  >
-                    {children}
-                  </Box>
-                </Spacing>
+                <Box
+                  justifyContent={'center'}
+                  alignItems={'center'}
+                  alignSelf={'stretch'}
+                >
+                  {children}
+                </Box>
               </Box>
             </Shadow>
           </Box>
@@ -70,7 +66,6 @@ export const Button: React.FC<ButtonType> = ({
 };
 
 type ButtonType = {
-  category?: 'fill' | 'ghost' | 'text';
   status?: 'disabled' | 'active' | 'default';
   size?: 'l' | 's';
   width?: number | string;
